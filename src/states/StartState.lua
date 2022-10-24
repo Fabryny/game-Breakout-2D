@@ -1,7 +1,7 @@
 -- the "__includes" bit here means we're going to inherit all of the methods
 -- that BaseState has, so it will have empty versions of all StateMachine methods
 -- even if we don't override them ourselves; handy to avoid superfluous code!
-StartState = Class {__includes = BaseState}
+StartState = class {__includes = BaseState}
 
 local highlighted = 1
 
@@ -9,6 +9,13 @@ function StartState:update(dt)
     if love.keyboard.wasPressed("up") or love.keyboard.wasPressed('down') then
         highlighted = highlighted == 1 and 2 or 1
         gSounds['paddle-hit']:play()
+    end
+
+    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then 
+        gSounds['confirm']:play()
+        if highlighted == 1 then
+            gStateMachine:change('play')
+        end
     end
 
     if love.keyboard.wasPressed('escape') then

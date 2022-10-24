@@ -10,11 +10,14 @@ push = require 'lib/push'
 -- methods
 --
 -- https://github.com/vrld/hump/blob/master/class.lua
-Class = require 'lib/class'
+class = require 'lib/class'
 
 
 require 'src/constants'
+require 'src/Util'
 require 'src/StateMachine'
 require 'src/states/BaseState'
 require 'src/states/StartState'
+require 'src/states/PlayState'
+require 'src/Paddle'
 

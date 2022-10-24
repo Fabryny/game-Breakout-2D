@@ -2,6 +2,10 @@
 require 'src/Dependencies'
 
 function love.load()
+    gFrames = {
+        ['paddles'] = GenerateQuadsPaddles(gTextures['main'])
+    }
+
     love.graphics.setDefaultFilter('nearest','nearest')
 
     math.randomseed(os.time())    -- seed the RNG so that calls to random are always random
@@ -17,8 +21,10 @@ function love.load()
     })
         
     gStateMachine = StateMachine {
-        ['start'] = function() return StartState() end
+        ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end
     }
+
     gStateMachine:change('start')
     love.keyboard.keysPressed = {}
 
