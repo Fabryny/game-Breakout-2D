@@ -3,7 +3,8 @@ require 'src/Dependencies'
 
 function love.load()
     gFrames = {
-        ['paddles'] = GenerateQuadsPaddles(gTextures['main'])
+        ['paddles'] = GenerateQuadsPaddles(gTextures['main']),
+        ['balls'] = GenerateQuadsBalls(gTextures['main'])
     }
 
     love.graphics.setDefaultFilter('nearest','nearest')
