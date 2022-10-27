@@ -9,8 +9,6 @@ function PlayState:enter(params)
     
     self.ball.dx = math.random(-200, 200)
     self.ball.dy = math.random(-50, -60)
-
-    self.bricks = LevelMaker.createMap() 
 end
 
 function PlayState:update(dt)
